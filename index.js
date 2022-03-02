@@ -69,7 +69,7 @@ function game() {
 
     // Grafik för orm och mat
     // Orm
-    board.innerHTML = "";
+    playArea.innerHTML = "";
     snakeArray.forEach((e, index) => {
         snakeIndex = document.createElement('div');
         snakeIndex.style.gridRowStart = e.y;
@@ -80,7 +80,7 @@ function game() {
         else {
             snakeIndex.classList.add('snaketail')
         }
-        board.appendChild(snakeIndex);
+        playArea.appendChild(snakeIndex);
     });
 
     //Mat
@@ -88,8 +88,19 @@ function game() {
     foodIndex.style.gridRowStart = foodArray.y;
     foodIndex.style.gridColumnStart = foodArray.x;
     foodIndex.classList.add('snakefood')
-    board.appendChild(foodIndex);
+    playArea.appendChild(foodIndex);
 
+}
+
+
+let oldHighScore = localStorage.getItem("highscore");
+if(oldHighScore === null){
+    leadingScore = 0;
+    localStorage.setItem("highscore", JSON.stringify(leadingScore))
+}
+else{
+    leadingScore = JSON.parse(oldHighScore);
+    showHighScore.innerHTML = "Highscore: " + oldHighScore;
 }
 
 // Knapptryck

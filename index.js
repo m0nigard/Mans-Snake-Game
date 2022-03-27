@@ -113,17 +113,14 @@ window.addEventListener('keydown', e => {
             direction.y = -1;
             break;
         case "ArrowDown":
-            console.log("Down")
             direction.x = 0;
             direction.y = 1;
             break;
         case "ArrowLeft":
-            console.log("Left")
             direction.x = -1;
             direction.y = 0;
             break;
         case "ArrowRight":
-            console.log("Right")
             direction.x = 1;
             direction.y = 0;
             break;
